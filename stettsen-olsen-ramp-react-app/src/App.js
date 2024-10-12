@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Loader from './components/Loader';
 import TypeWriter from './components/TypeWriter';
-
+import StringToList from './components/StringToList';
 function GetTheFlag() {
   const [flag, setFlag] = useState('');
   const [loading, setLoading] = useState(true);
@@ -40,7 +40,10 @@ function GetTheFlag() {
       {loading ? (
         <Loader />
       ) : (
-        <TypeWriter text={flag || error || 'Something went wrong'} />
+        <>
+          <TypeWriter text={flag || error || 'Something went wrong'} />
+          <StringToList string={flag || error || 'Something went wrong'} />
+        </>
       )}
     </div>
   );
